@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from blog.models import blog
-from news.models import news
+from News.models import news
 from Youtube.models import youtube
-from user.models import Profile
+from User.models import Profile
 
 #from taggit.serializers import (TagListSerializerField, TaggitSerializer)
 
