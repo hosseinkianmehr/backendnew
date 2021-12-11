@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from blog.models import blog
+from Blog.models import blog
 from News.models import news
 from Youtube.models import youtube
 from User.models import Profile
