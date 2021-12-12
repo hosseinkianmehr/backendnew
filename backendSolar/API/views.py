@@ -11,7 +11,10 @@ from .serializers import blogSer ,newsSer, youtubeSer
 # The last 3 are blog posts 
 # The last 6 are youtube posts
 # The last 3 are news posts
-
+hello = blog.objects.all()
+class Home(generics.ListAPIView):
+    queryset= [hello[:3]]
+    serializer_class = blogSer
 
 # list blog (Titel / image / Summary)
 class listblog(generics.ListAPIView):
