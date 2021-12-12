@@ -2,7 +2,7 @@ from django.db import models
 class news(models.Model):
     titel = models.CharField(("Titel"), max_length=50)
     content = models.TextField(("content"))
-    #tag = models.ManyToManyField('tagANDcomment.tag', related_name='tagsNews', verbose_name = ("tag") ,blank=True)
+    tag = models.ManyToManyField('TagAndComment.tag', related_name='tagsNews', verbose_name = ("tagnews") ,blank=True)
     createTime = models.DateField(("Date"), auto_now=False, auto_now_add=False)
     imagecontent =models.ImageField(("iamge"), upload_to=None, height_field=None, width_field=None, max_length=None) 
 

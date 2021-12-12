@@ -6,7 +6,7 @@ class youtube(models.Model):
     content = models.TextField()
     imagecontent = models.ImageField(("image"), upload_to=None, height_field=None, width_field=None, max_length=None)
     createTime = models.TimeField(("Time"), auto_now=False, auto_now_add=False)
-    #tag = models.ManyToManyField('tagANDcomment.tag', related_name='tagsBlog', verbose_name = ("tag") ,blank=True)
+    tag = models.ManyToManyField('TagAndComment.tag', related_name='tagsYoutube', verbose_name = ("tagyoutube") ,blank=True)
 
     class Meta:
         verbose_name = ("youtube")

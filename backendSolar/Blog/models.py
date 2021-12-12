@@ -3,7 +3,7 @@ from django.db import models
 
 class blog(models.Model):
     minetitel = models.TextField(("minetitel"))
-    #tag = models.ManyToManyField('tagANDcomment.tag', related_name='tagsBlog', verbose_name = ("tag") ,blank=True)
+    tag = models.ManyToManyField('TagAndComment.tag', related_name='tagsBlog', verbose_name = ("tagblog") ,blank=True)
     createTime = models.DateField()
     updateTime = models.DateField()
 
