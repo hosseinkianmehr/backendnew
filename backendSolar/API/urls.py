@@ -9,4 +9,6 @@ urlpatterns = [
     path("blog/<int:pk>/", views.detailblog.as_view(), name="blog-detali"),
     path("news/<int:pk>/", views.detailnews.as_view(), name="news-detali"),
     path("youtube/<int:pk>/", views.detailyoutube.as_view(), name="youtube-detail"),
+    #home
+     path("home/", views.Home.as_view(), name="Home"),
 ]

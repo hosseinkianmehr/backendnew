@@ -11,10 +11,16 @@ from .serializers import blogSer ,newsSer, youtubeSer
 # The last 3 are blog posts 
 # The last 6 are youtube posts
 # The last 3 are news posts
-hello = blog.objects.all()
-class Home(generics.ListAPIView):
-    queryset= [hello[:3]]
-    serializer_class = blogSer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+class Home(APIView):
+    def get(self, request):
+        bloglist = blog.objects.all()
+        newslist = news.objects.all()
+        # the many param informs the serializer that it will be serializing more than a single article.
+        serializerblog = blogSer(bloglist[:3], many=True)
+        serializernews = newsSer(newslist[:3], many=True)
+        return Response({"blog": serializerblog.data,"news": serializernews.data})
 
 # list blog (Titel / image / Summary)
 class listblog(generics.ListAPIView):

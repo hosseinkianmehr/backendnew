@@ -6,7 +6,7 @@ from Youtube.models import youtube
 from User.models import Profile
 from TagAndComment.models import tag
 
-#$$$$$$$$tag handel
+#$$$$$$$$tag handle
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = tag
