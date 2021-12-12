@@ -4,24 +4,28 @@ from Blog.models import blog
 from News.models import news
 from Youtube.models import youtube
 from User.models import Profile
+from TagAndComment.models import tag
 
-#from taggit.serializers import (TagListSerializerField, TaggitSerializer)
-
+#$$$$$$$$tag handel
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = tag
+        fields = '__all__'
+#$$$$$$$$$$$$$$$$$$
 class blogSer(serializers.ModelSerializer ):
-    #tags = TagListSerializerField()
-
+    tag  = TagSerializer(many=True, read_only=True)
     class Meta:
         model = blog 
         fields = "__all__"
-  
 
 class newsSer(serializers.ModelSerializer ):
-   # tag = TagListSerializerField()
+    tag  = TagSerializer(many=True, read_only=True)
     class Meta:
         model = news
         fields = "__all__"
 
 class youtubeSer(serializers.ModelSerializer):
+    tag  = TagSerializer(many=True, read_only=True)
     class Meta:
         model = youtube
         fields = "__all__"
