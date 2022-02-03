@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'Youtube',
     
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader'
+   
 ]
 
 MIDDLEWARE = [
@@ -128,6 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -141,3 +148,24 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ]
 }
+
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'image_previewText': ' ',
+        'tabSpaces': 4,
+        'toolbar': 'Custom',
+        
+        'extraPlugins': ','.join(['codesnippet', 'uploadimage',  'widget', 'lineutils', ]),
+    },
+}
+
+###################################

@@ -1,9 +1,10 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class youtube(models.Model):
     title = models.CharField(max_length=120)
-    content = models.TextField()
+    content = RichTextUploadingField()
     imagecontent = models.ImageField(("image"), upload_to=None, height_field=None, width_field=None, max_length=None)
     createTime = models.TimeField(("Time"), auto_now=False, auto_now_add=False)
     tag = models.ManyToManyField('TagAndComment.tag', related_name='tagsYoutube', verbose_name = ("tagyoutube") ,blank=True)

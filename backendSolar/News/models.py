@@ -1,7 +1,9 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
+
 class news(models.Model):
     titel = models.CharField(("Titel"), max_length=50)
-    content = models.TextField(("content"))
+    content = RichTextUploadingField()
     tag = models.ManyToManyField('TagAndComment.tag', related_name='tagsNews', verbose_name = ("tagnews") ,blank=True)
     createTime = models.DateField(("Date"), auto_now=False, auto_now_add=False)
     imagecontent =models.ImageField(("iamge"), upload_to=None, height_field=None, width_field=None, max_length=None) 
